@@ -32,18 +32,12 @@
     </tr>
 </table>
 
-
-
-
 <?php
 
-$fruits = array (
-    "id_uti"  => "",
-    "numbers" => "",
-    "holes"   => ""
-);
-require "./src/model/DTO/Utilisateur.php";
+require "../src/model/DTO/Etudiant.php";
 
-$bonbon = new \DTO\Tuteur("");
+$bonbon = new \DTO\Etudiant(["id_uti"]);
 
-var_dump();
+var_dump($bonbon->getNom());
+
+?>
