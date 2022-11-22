@@ -2,7 +2,9 @@
 
 namespace DTO;
 
-class administrateur
+use DAO\Administrateur_DAO;
+
+class administrateur extends Utilisateur
 {
     private int $id_ad;
     private string $log_ad;
