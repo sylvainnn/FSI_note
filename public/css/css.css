@@ -27,3 +27,20 @@ body{
     width: 65%;
     height: 79%;
 }
+
+.footer{
+    position: absolute;
+    top: 96%;
+    left: 50%;
+    font-size: 15px;
+}
+
+.header{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 0%;
+    left: 0%;
+    background: #62AA6D;
+    border-radius: 0 0 95% 95% / 40%;
+}

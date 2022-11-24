@@ -6,11 +6,8 @@
 
 </head>
 <body>
-<?php
-include_once ('../../public/inc/sectionLeft.php');
-include_once  ('../../public/inc/footer.php');
-include_once ('../../public/inc/header.php');
-?>
-<div class="sectionRight">Test</div>
+<div class="footer">
+    ©VirgilCorp
+</div>
 </body>
 </html>

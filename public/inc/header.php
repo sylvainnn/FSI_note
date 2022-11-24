@@ -6,11 +6,10 @@
 
 </head>
 <body>
-<?php
-include_once ('../../public/inc/sectionLeft.php');
-include_once  ('../../public/inc/footer.php');
-include_once ('../../public/inc/header.php');
-?>
-<div class="sectionRight">Test</div>
+<div class="header">
+    <span style="position: absolute; top: 5%; left: 2%">
+        <img src="../../public/images/FSI_logo.png" height="40px">
+    </span>
+</div>
 </body>
 </html>
