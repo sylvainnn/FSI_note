@@ -12,12 +12,37 @@
     </span>
 
     <style>
+        input[type=text], select {
+            width: 65%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+        }
+
+        input[type=password], select {
+            width: 65%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+        }
+
         input[type=submit], select {
-            width: 100%;
-            background-color: #499c54;
+            position: absolute;
+            top: 120%;
+            left: 30px;
+            width: 50%;
+            background-color: #499C54;
             border: none;
             color: white;
-            padding: 8px 32px;
+            padding: 15px 32px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -25,7 +50,6 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.29);
         }
 
         input[type=submit]:hover {
@@ -33,11 +57,6 @@
         }
     </style>
 
-    <span style="position: absolute; top: 10%; left: 85%;"
-    <form method="post" action="">
-        <input type="submit" value="Déconnexion">
-    </form>
-    </span>
 </div>
 </body>
 </html>
