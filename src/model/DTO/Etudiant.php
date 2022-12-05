@@ -8,7 +8,7 @@ class Etudiant extends Utilisateur
     private int $id_etu;
     private string $classe_etu;
     private string $adresse_etu;
-    private Entreprise $entreprise_etu;
+    private int $entreprise_etu;
     private Tuteur $tuteur_etu;
     private array $mesNotes_etu;
 
