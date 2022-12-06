@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <!-- importer le fichier de style -->
@@ -29,15 +29,20 @@
         }
 
         input[type=submit]:hover {
-            background-color: #45a049;
+            background-color: rgb(45, 148, 59);
         }
     </style>
 
-    <span style="position: absolute; top: 10%; left: 85%;"
+    <span style="position: absolute; top: 10%; left: 85%;">
     <form method="post" action="">
         <input type="submit" value="Déconnexion">
     </form>
     </span>
+
+    <span style="position: absolute; top: 30%; left: 33%; font-size: 18px; color: white;">
+        Accueil
+    </span>
+
 </div>
 </body>
 </html>
