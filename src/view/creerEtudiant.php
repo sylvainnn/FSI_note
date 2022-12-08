@@ -23,6 +23,35 @@ include_once('../../public/inc/header.php');
 </div>
 
 <div class="sectionRight">
+    <style>
+        input[type=text], select {
+            width: 65%;
+            padding: 6px 20px;
+            margin: 8px;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+            font-size: 16px;
+        }
+    </style>
+
+    <span style="position: absolute; top: 15%; left: 25%;"
+    <form method="post" action="">
+
+        <input type="text" id="nom" placeholder="Nom">
+        <input type="text" id="prenom" placeholder="Prénom">
+        <input type="text" id="classe" placeholder="Classe">
+        <input type="text" id="telephone" placeholder="Téléphone">
+        <input type="text" id="adresse" placeholder="Adresse">
+        <input type="text" id="mail" placeholder="Mail">
+
+        <span style="position: absolute; top: 300px; left: 25%">
+            <input type="submit" value="Enregistrer">
+
+    </form>
+    </span>
 </div>
 
 </body>

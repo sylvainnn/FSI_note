@@ -48,3 +48,12 @@ body{
     background: #62AA6D;
     border-radius: 0 0 95% 95% / 40%;
 }
+
+A:link {
+    text-decoration: none;
+}
+
+A:visited{
+    color: white;
+    text-decoration: none;
+}

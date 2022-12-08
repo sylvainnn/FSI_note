@@ -17,7 +17,8 @@ include_once('../../public/inc/header.php');
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
-    <br>ORT Etudes Supérieures
+    <br>
+    ORT Etudes Supérieures
     <br><br><br>
     <img src="../../public/images/Slide%20Lines.png" height="4px">
 </div>

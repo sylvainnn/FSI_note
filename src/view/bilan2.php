@@ -23,6 +23,33 @@ include_once('../../public/inc/header.php');
 </div>
 
 <div class="sectionRight">
+    <style>
+        input[type=text], select {
+            width: 65%;
+            padding: 6px 20px;
+            margin: 8px;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+            font-size: 16px;
+        }
+    </style>
+
+    <span style="position: absolute; top: 15%; left: 25%;"
+    <form method="post" action="">
+
+        <input type="text" id="dateBilan2" placeholder="Date du bilan 2">
+        <input type="text" id="noteDossier" placeholder="Note du dossier">
+        <input type="text" id="noteOral" placeholder="Note d'oral'">
+        <input type="text" id="remarque" placeholder="Remarque">
+
+        <span style="position: absolute; top: 220px; left: 25%">
+            <input type="submit" value="Enregistrer">
+
+    </form>
+    </span>
 </div>
 
 </body>
