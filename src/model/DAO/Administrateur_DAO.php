@@ -31,7 +31,7 @@ class Administrateur_DAO
         return $resultSet;
     }
 
-    public function GetById{
+    public function GetById(int $id): ?array{
         $resultSet = NULL;
         $query = 'SELECT * FROM administrateur WHERE id_ad=:id_ad;';
 
@@ -58,7 +58,7 @@ class Administrateur_DAO
                 $query = 'SELECT * FROM Administrateur WHERE logAdmin = :login';
                 //  Préparation et exécution de la requête
                 $reqPrep = $this->bdd->prepare($query);
-                $reqPrep->bindValue(':login', $entity->getLoginPersonnel());
+                $reqPrep->bindValue(':login', $entity->getlogAd());
                 $rqtResult = $reqPrep->execute();
                 if ($rqtResult) {
                     //  Récupération des résultats d'exécution de la requête
@@ -68,11 +68,9 @@ class Administrateur_DAO
                         $administrateur = new administrateur($row);
 
                         if (password_verify($entity->getMdpAd(), $administrateur->getMdpAd())) {
-                            // if ($entity->getMdpPersonnel()== $personnel->getMdpPersonnel()){
                             //  On ne conserve nulle part le password en dehors de la bdd...
                             $administrateur->setMdpAd('');
                             //  Mise en place des variables de session
-                            // A FIARE PLUS TARD DANS LE SUJET
                             $_SESSION['Administrateur'] = $administrateur;
                             //  Authentification réussie, on retournera TRUE
                             $resultSet = TRUE;
@@ -86,5 +84,31 @@ class Administrateur_DAO
                 $resultSet = FALSE;
         }
         return $resultSet;
+    }
+    public function ajoutAdministrateur(Administrateur $entity):?Administrateur{
+        $resultat = true;
+        $query = "INSERT INTO Administrateur" .
+            " (id_ad,nom,pre,tel,email,log,mdp)"
+            . " VALUES (:id_ad, :nom, :pre, :tel, :email, :log, :mdp)";
+        $reqPrep = $this->bdd->prepare($query);
+        $res = $reqPrep->execute(
+            [':id_ad'=>$entity->id_ad(),
+                ':nom'=>$entity->nom(),
+                ':pre' => $entity->pre(),
+                ':tel' => $entity->tel(),
+                ':email' => $entity->email(),
+                ':log' => $entity->log(),
+                ':mdp' => $entity->mdp()
+            ]
+        );
+        if ($res == FALSE) {
+            $resultat = false;
+        }
+        else {
+            $entity->setIdAd();($this->bdd->lastInsertId());
+            $_SESSION['Administrateur'] = $entity;
+        }
+
+        return $entity;
     }
 }
