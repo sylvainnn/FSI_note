@@ -31,7 +31,7 @@ class Administrateur_DAO
         return $resultSet;
     }
 
-    public function GetById(int $id): ?array{
+    public function GetById(int $id): ?administrateur{
         $resultSet = NULL;
         $query = 'SELECT * FROM administrateur WHERE id_ad=:id_ad;';
 

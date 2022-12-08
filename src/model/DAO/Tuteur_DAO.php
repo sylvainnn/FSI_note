@@ -2,6 +2,7 @@
 
 namespace DAO;
 
+use DTO\Tuteur;
 class Tuteur_DAO
 {
     private PDO $bdd;
@@ -28,7 +29,7 @@ class Tuteur_DAO
         return $resultSet;
     }
 
-    public function GetById(int $id): ?array{
+    public function GetById(int $id): ?Tuteur{
         $resultSet = NULL;
         $query = 'SELECT * FROM tuteur WHERE id_tut=:id_tut;';
 
