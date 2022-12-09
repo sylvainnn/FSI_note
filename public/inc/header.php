@@ -39,15 +39,15 @@
     </form>
     </span>
 
-    <span style="position: absolute; top: 30%; left: 33%; font-size: 18px; color: white;">
+    <span style="position: absolute; top: 30%; left: 34%; font-size: 18px; color: white;">
         <a href="">Accueil</a>
     </span>
 
-    <span style="position: absolute; top: 30%; left: 40%; font-size: 18px; color: white;">
+    <span style="position: absolute; top: 30%; left: 42%; font-size: 18px; color: white;">
         <a href="">Listes des étudiants</a>
     </span>
 
-    <span style="position: absolute; top: 30%; left: 53%; font-size: 18px; color: white;">
+    <span style="position: absolute; top: 30%; left: 56%; font-size: 18px; color: white;">
         <a href="">Paramètres</a>
     </span>
 
