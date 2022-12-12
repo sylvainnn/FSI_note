@@ -4,11 +4,34 @@
     <!-- importer le fichier de style -->
     <link rel="stylesheet" href="../../public/css/css.css" media="screen" type="text/css"/>
 
+    <style>
+        table.customTable {
+            width: 100%;
+            background-color: #FFFFFF;
+            border-collapse: collapse;
+            border-width: 2px;
+            border-color: #499C54;
+            border-style: solid;
+            color: #000000;
+        }
+
+        table.customTable td, table.customTable th {
+            border-width: 2px;
+            border-color: #499C54;
+            border-style: solid;
+            padding: 5px;
+        }
+
+        table.customTable thead {
+            background-color: #499C54;
+        }
+    </style>
+
 </head>
 <body>
 <?php
-include_once  ('../../public/inc/footer.php');
 include_once('../../public/inc/header.php');
+include_once  ('../../public/inc/footer.php');
 ?>
 
 <div class="sectionLeft"><h1>paramétrage</h1>
@@ -23,6 +46,28 @@ include_once('../../public/inc/header.php');
 </div>
 
 <div class="sectionRight">
+    <table class="customTable">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Téléphone</th>
+            <th>Mail</th>
+            <th>Spécialité</th>
+            <th>Nombre d'étudiants max</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Infos</td>
+            <td>Infos</td>
+            <td>Infos</td>
+            <td>Infos</td>
+            <td>Infos</td>
+            <td>Infos</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

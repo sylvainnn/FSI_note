@@ -7,8 +7,8 @@
 </head>
 <body>
 <?php
-include_once  ('../../public/inc/footer.php');
 include_once('../../public/inc/header.php');
+include_once  ('../../public/inc/footer.php');
 ?>
 
 <div class="sectionLeft"><h1>Affecer tuteur</h1>
@@ -23,31 +23,28 @@ include_once('../../public/inc/header.php');
 </div>
 
 <div class="sectionRight">
-    <style>
-        input[type=text], select {
-            width: 65%;
-            padding: 6px 20px;
-            margin: 8px;
-            display: inline-block;
-            border: 0px solid #ccc;
-            border-radius: 30px;
-            box-sizing: border-box;
-            background-color: #efefef;
-            font-size: 16px;
-        }
-    </style>
-
-    <span style="position: absolute; top: 15%; left: 25%;"
-    <form method="post" action="">
-
-        <input type="text" id="idEtudiant" placeholder="Id étudiant">
-        <input type="text" id="idTuteur" placeholder="Id tuteur">
-
-        <span style="position: absolute; top: 110px; left: 22%">
-            <input type="submit" value="Enregistrer">
-
-    </form>
+    <span style="position: absolute; top: 10%; left: 40%">
+        <div class="select">
+            <select>
+                <option value="1">etudiant 1</option>
+                <option value="2">etudiant 2</option>
+                <option value="3">etudiant 3</option>
+                <option value="4">etudiant 4</option>
+            </select>
+    </div>
     </span>
+    <span style="position: absolute; top: 30%; left: 40%">
+        <div class="select">
+            <select>
+                <option value="1">Tuteur 1</option>
+                <option value="2">Tuteur 2</option>
+                <option value="3">Tuteur 3</option>
+                <option value="4">Tuteur 4</option>
+            </select>
+    </div>
+    </span>
+    <span style="position: absolute; top: 60%; left: 40%">
+            <input type="submit" value="Enregistrer">
 </div>
 
 </body>

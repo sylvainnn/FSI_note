@@ -47,7 +47,7 @@
         <a href="">Listes des étudiants</a>
     </span>
 
-    <span style="position: absolute; top: 30%; left: 56%; font-size: 18px; color: white;">
+    <span style="position: absolute; top: 30%; left: 57%; font-size: 18px; color: white;">
         <a href="">Paramètres</a>
     </span>
 

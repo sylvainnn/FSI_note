@@ -7,8 +7,8 @@
 </head>
 <body>
 <?php
-include_once  ('../../public/inc/footer.php');
 include_once('../../public/inc/header.php');
+include_once  ('../../public/inc/footer.php');
 ?>
 
 <div class="sectionLeft"><h1>Bilan 2</h1>
