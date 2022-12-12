@@ -5,6 +5,7 @@ namespace DTO;
 class Etudiant
 {
     private int $id_etu;
+    private int $id_tut;
     private string $nom_etu;
     private string $pre_etu;
     private string $tel_etu;
@@ -29,12 +30,30 @@ class Etudiant
         $this->autres_etu = $data["autres_etu"];
         $this->log_etu = $data["log_etu"];
         $this->mdp_etu = $data["mdp_etu"];
+        $this->id_tut = $data["id_tut"];
         $this->id_ent = $data["id_ent"];
     }
 
     /**
      * @return int|mixed
      */
+    public function getIdTut(): mixed
+    {
+        return $this->id_tut;
+    }
+
+    /**
+     * @param int|mixed $id_tut
+     */
+    public function setIdTut(mixed $id_tut): void
+    {
+        $this->id_tut = $id_tut;
+    }
+
+    /**
+     * @return int|mixed
+     */
+
     public function getIdEtu(): mixed
     {
         return $this->id_etu;
@@ -207,5 +226,4 @@ class Etudiant
     {
         $this->id_ent = $id_ent;
     }
-
 }

@@ -6,9 +6,9 @@ use DTO\Etudiant;
 
 class Etudiant_DAO
 {
-    private PDO $bdd;
+    private \PDO $bdd;
 
-    public function __construct(PDO $bdd)
+    public function __construct(\PDO $bdd)
     {
         $this->bdd = $bdd;
     }
