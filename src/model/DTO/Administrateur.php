@@ -2,146 +2,136 @@
 
 namespace DTO;
 
-class Etudiant
+class Administrateur
 {
-    private int $id_etu;
-    private string $nom_etu;
-    private string $pre_etu;
-    private string $tel_etu;
-    private string $log_etu;
-    private string $mdp_etu;
-    private int $id_ent;
-
-    /**
-     * @param int $id_etu
-     * @param string $nom_etu
-     * @param string $pre_etu
-     * @param string $tel_etu
-     * @param string $log_etu
-     * @param string $mdp_etu
-     * @param int $id_ent
-     */
+    private int $id_ad;
+    private string $nom_ad;
+    private string $pre_ad;
+    private string $tel_ad;
+    private string $email_ad;
+    private string $log_ad;
+    private int $mdp_ad;
 
     public function __construct($data)
     {
-        $this->id_etu = $data["id_etu"];
-        $this->nom_etu = $data["nom_etu"];
-        $this->pre_etu = $data["pre_etu"];
-        $this->tel_etu = $data["tel_etu"];
-        $this->log_etu = $data["log_etu"];
-        $this->mdp_etu = $data["mdp_etu"];
-        $this->id_ent = $data["id_ent"];
+        $this->id_ad = $data["id_ad"];
+        $this->nom = $data["nom"];
+        $this->pre = $data["pre"];
+        $this->tel = $data["tel"];
+        $this->email = $data["email"];
+        $this->log = $data["log"];
+        $this->mdp = $data["mdp"];
     }
 
     /**
      * @return int
      */
-    public function getIdEtu(): int
+    public function getIdAd(): int
     {
-        return $this->id_etu;
+        return $this->id_ad;
     }
 
     /**
-     * @param int $id_etu
+     * @param int $id_ad
      */
-    public function setIdEtu(int $id_etu): void
+    public function setIdAd(int $id_ad): void
     {
-        $this->id_etu = $id_etu;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNomEtu(): string
-    {
-        return $this->nom_etu;
-    }
-
-    /**
-     * @param string $nom_etu
-     */
-    public function setNomEtu(string $nom_etu): void
-    {
-        $this->nom_etu = $nom_etu;
+        $this->id_ad = $id_ad;
     }
 
     /**
      * @return string
      */
-    public function getPreEtu(): string
+    public function getNom(): string
     {
-        return $this->pre_etu;
+        return $this->nom;
     }
 
     /**
-     * @param string $pre_etu
+     * @param string $nom
      */
-    public function setPreEtu(string $pre_etu): void
+    public function setNom(string $nom): void
     {
-        $this->pre_etu = $pre_etu;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTelEtu(): string
-    {
-        return $this->tel_etu;
-    }
-
-    /**
-     * @param string $tel_etu
-     */
-    public function setTelEtu(string $tel_etu): void
-    {
-        $this->tel_etu = $tel_etu;
+        $this->nom = $nom;
     }
 
     /**
      * @return string
      */
-    public function getLogEtu(): string
+    public function getPre(): string
     {
-        return $this->log_etu;
+        return $this->pre;
     }
 
     /**
-     * @param string $log_etu
+     * @param string $pre
      */
-    public function setLogEtu(string $log_etu): void
+    public function setPre(string $pre): void
     {
-        $this->log_etu = $log_etu;
+        $this->pre = $pre;
     }
 
     /**
      * @return string
      */
-    public function getMdpEtu(): string
+    public function getTel(): string
     {
-        return $this->mdp_etu;
+        return $this->tel;
     }
 
     /**
-     * @param string $mdp_etu
+     * @param string $tel
      */
-    public function setMdpEtu(string $mdp_etu): void
+    public function setTel(string $tel): void
     {
-        $this->mdp_etu = $mdp_etu;
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLog(): string
+    {
+        return $this->log;
+    }
+
+    /**
+     * @param string $log
+     */
+    public function setLog(string $log): void
+    {
+        $this->log = $log;
     }
 
     /**
      * @return int
      */
-    public function getIdEnt(): int
+    public function getMdp(): int
     {
-        return $this->id_ent;
+        return $this->mdp;
     }
 
     /**
-     * @param int $id_ent
+     * @param int $mdp
      */
-    public function setIdEnt(int $id_ent): void
+    public function setMdp(int $mdp): void
     {
-        $this->id_ent = $id_ent;
+        $this->mdp = $mdp;
     }
 }
