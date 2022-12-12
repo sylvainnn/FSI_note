@@ -6,6 +6,13 @@ use DTO\Etudiant;
 
 class Etudiant_DAO
 {
+    private PDO $bdd;
+
+    public function __construct(PDO $bdd)
+    {
+        $this->bdd = $bdd;
+    }
+
     public function getAll() : ?array
     {
         $resultSet = NULL;
