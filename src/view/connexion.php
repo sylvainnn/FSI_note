@@ -1,59 +1,89 @@
-<?php
-require_once "../../config/appConfig.php";
-?>
-
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <!-- importer le fichier de style -->
     <link rel="stylesheet" href="../../public/css/css.css" media="screen" type="text/css"/>
 
+    <style>
+        input[type=text], select {
+            width: 65%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+        }
+
+        input[type=password], select {
+            width: 65%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            box-sizing: border-box;
+            background-color: #efefef;
+        }
+
+        input[type=submit], select {
+            position: absolute;
+            top: 120%;
+            left: 30px;
+            width: 50%;
+            background-color: #499C54;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #2d943b;
+        }
+    </style>
+
 </head>
 <body>
+<?php
+include_once('../../public/inc/headerConnexion.php');
+include_once  ('../../public/inc/footer.php');
+?>
 
-<div id="header_0">
-    <!-- header connexion et inscription -->
-
-    <a href="creeCompte.php"> <input type="button" id="inscr" value="INSCRIPTION"> </a>
-
-
+<div class="sectionLeft"><h1>Connexion</h1>
+    <br><br><br><br><br><br><br><br>
+    <span style="position: absolute; top: 110px; left: 90px;">
+        <img src="../../public/images/sitting-4.png" height="170px">
+    </span>
+    <br><br><br><b><h3>Gestion du tutorat</h3></b>
+    <br>ORT Etudes Supérieures
+    <br><br><br>
+    <img src="../../public/images/Slide%20Lines.png" height="4px">
 </div>
-<div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#">
-            <h1>Crée un compte</h1>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
-        <form action="../controler/control_connexion.php" method="POST">
-            <h1>Connexion</h1>
-            <input type="text" name="username"  placeholder="Login" required>
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <a href="ForgotPassword.php">Mot de passe oublié?</a>
-            <button>Connexion</button>
-            <?php
-            if (isset($_GET['Error'])) {
-                if ($_GET['Error'] == "WrongPassword") {
-                    echo "<p style='color:red ; text-align: center;'>Utilisateur ou mot de passe incorrect</p>";
-                }
-            }
-            ?>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Bonjour de nouveau!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Connexion</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Connexion</h1>
-                <p>Vous êtes nouveau, entrer vos informations personnelles</p>
-                <a href="creeCompte.php"><input type="button" id="inscr"><button class="ghost" id="signUp">Inscription</button></a>
-            </div>
-        </div>
-    </div>
+
+<div class="sectionRight">
+    <span style="position: absolute; top: 20%; left: 40%; color: black;"
+    <b><h1>Connexion</h1></b>
+    </span>
+
+    <span style="position: absolute; top: 40%; left: 33%">
+    <form method="post" action="">
+
+        <input type="text" id="login" placeholder="Login">
+
+        <input type="password" id="password" placeholder="Mot de passe">
+
+        <input type="submit" value="Connexion">
+    </form>
+    </span>
 </div>
+
 </body>
 </html>
