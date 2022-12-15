@@ -67,8 +67,8 @@ include_once  ('../../public/inc/footer.php');
             <td>Infos</td>
             <td>Infos</td>
             <td>Infos</td>
-            <td>Infos</td>
-            <td>Infos</td>
+            <td>Details</td>
+            <td>Modifier</td>
         </tr>
         </tbody>
     </table>

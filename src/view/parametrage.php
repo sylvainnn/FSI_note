@@ -55,6 +55,8 @@ include_once  ('../../public/inc/footer.php');
             <th>Mail</th>
             <th>Spécialité</th>
             <th>Nombre d'étudiants max</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -65,9 +67,20 @@ include_once  ('../../public/inc/footer.php');
             <td>Infos</td>
             <td>Infos</td>
             <td>Infos</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
         </tr>
         </tbody>
     </table>
+
+    <span style="position: absolute; top: 90%; left: 58%">
+            <input type="submit" value="Affecter tuteur">
+    </span>
+
+    <span style="position: absolute; top: 90%; left: 79%">
+            <input type="submit" value="Créer étudiant">
+    </span>
+
 </div>
 
 </body>
