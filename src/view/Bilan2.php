@@ -13,7 +13,7 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionLeft"><h1>Bilan 2</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -37,7 +37,7 @@ include_once  ('../../public/inc/footer.php');
         }
     </style>
 
-    <span class="bilan2">
+    <span style="position: absolute; top: 15%; left: 25%;"
     <form method="post" action="">
 
         <input type="text" id="dateBilan2" placeholder="Date du bilan 2">

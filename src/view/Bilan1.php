@@ -11,9 +11,9 @@ include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
 ?>
 
-<div class="sectionLeft"><h1>Bilan 2</h1>
+<div class="sectionLeft"><h1>Bilan 1</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -37,15 +37,16 @@ include_once  ('../../public/inc/footer.php');
         }
     </style>
 
-    <span class="bilan2">
+    <span style="position: absolute; top: 15%; left: 25%;"
     <form method="post" action="">
 
-        <input type="text" id="dateBilan2" placeholder="Date du bilan 2">
+        <input type="text" id="date" placeholder="Date de visite en entreprise">
+        <input type="text" id="noteEntreprise" placeholder="Note fixée par l'entreprise">
         <input type="text" id="noteDossier" placeholder="Note du dossier">
-        <input type="text" id="noteOral" placeholder="Note d'oral'">
+        <input type="text" id="noteOral" placeholder="Note d'oral">
         <input type="text" id="remarque" placeholder="Remarque">
 
-        <span style="position: absolute; top: 220px; left: 25%">
+        <span style="position: absolute; top: 270px; left: 25%">
             <input type="submit" value="Enregistrer">
 
     </form>

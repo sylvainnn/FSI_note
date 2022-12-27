@@ -30,4 +30,23 @@ class Entreprise_DAO
         }
         return $resultSet;
     }
+
+    public function GetById(int $id): ?Entreprise{
+        $resultSet = NULL;
+        $query = 'SELECT * FROM entreprise WHERE id_ent=:id_ent;';
+
+        // On prépare la rêquete
+        $reqPrep = $this->bdd->prepare($query);
+
+        $res = $reqPrep->execute([':id_ent' => $id]);
+
+        if ($res !== FALSE) {
+            $tab = ($tmp = $reqPrep->fetch(\PDO::FETCH_ASSOC)) ? $tmp : null;
+            if(!is_null($tab)) {
+
+                $resultSet = new tuteur($tab);
+            }
+        }
+        return $resultSet;
+    }
 }

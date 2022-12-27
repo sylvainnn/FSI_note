@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <!-- importer le fichier de style -->
-    <link rel="stylesheet" href="../../public/css/css.css" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="../css/css.css" media="screen" type="text/css"/>
 
 </head>
 <body>

@@ -13,7 +13,7 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionLeft"><h1>Détails</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -23,27 +23,27 @@ include_once  ('../../public/inc/footer.php');
 </div>
 
 <div class="sectionRight">
-    <span class="infoEtudTitre">
+    <span style="position: absolute; left: 5%; top: 5%; font-size: 26px;">
         <b>Informations de l'étudiant</b>
     </span>
-    <span class="infoEtud">
+    <span style="position: absolute; left: 5%; top: 15%">
         (Nom Prénom)<br><br>
         (Classe)<br><br>
         (Téléphone)<br><br>
         (Adresse)<br><br>
         (Mail)
     </span>
-    <span class="sujetAnalyseTitre">
+    <span style="position: absolute; left: 5%; top: 55%; font-size: 26px;">
         <b>Sujets d'analyses</b>
     </span>
-    <span class="sujetAnalyse">
+    <span style="position: absolute; left: 5%; top: 65%">
         (Sujet d'analyse 3OLEN)<br><br>
         (Sujet de mémoire 4 et 5OLEN)
     </span>
-    <span class="informationEntrepriseTitre">
+    <span style="position: absolute; left: 55%; top: 5%; font-size: 26px;">
         <b>Informations de l'entreprise</b>
     </span>
-    <span class="informationEntreprise">
+    <span style="position: absolute; left: 55%; top: 15%">
         (Nom )<br><br>
         (Adresse)<br><br>
         (Nom Prénom du maître d'apprentissage)<br><br>

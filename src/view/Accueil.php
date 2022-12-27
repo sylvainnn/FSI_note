@@ -14,7 +14,7 @@ include_once  ('../../public/inc/footer.php');
 <div class="sectionLeft"><h1>Accueil</h1>
     <br><br><br><br><br><br><br><br>
     <span style="position: absolute; top: 110px; left: 90px;">
-        <img src="../../public/images/sitting-4.png" height="170px">
+        <img class="bite" src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
     <br>
@@ -24,7 +24,7 @@ include_once  ('../../public/inc/footer.php');
 </div>
 
 <div class="sectionRight">
-    <span class="bienvenue">
+    <span style="position: absolute; top: 20%; left: 30%; font-size: 30px; text-align: center;">
         Bienvenue (Prénom NOM)
     </span>
 </div>
