@@ -11,7 +11,7 @@ include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
 ?>
 
-<div class="sectionLeft"><h1>Accueill</h1>
+<div class="sectionLeft"><h1>Accueil</h1>
     <br><br><br><br><br><br><br><br>
     <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
