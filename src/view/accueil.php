@@ -6,6 +6,7 @@
 
 </head>
 <body>
+
 <?php
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
