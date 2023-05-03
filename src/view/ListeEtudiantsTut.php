@@ -12,17 +12,17 @@ include_once  ('../../public/inc/footer.php');
 
 
 require_once "../../config/appConfig.php";
-
+$user=$_SESSION["tuteur"];
 $connexion = new DTO\Bdd($Bdd);
 $DAO = new DAO\Etudiant_DAO($connexion->getPDO());
-$MesEtudiants = $DAO->getAll();
+$MesEtudiants = $DAO->GetBytuteur($user->getIdTut());
 if ($_SESSION){
 ?>
 ?>
 
 <body>
 
-<div class="sectionLeft"><h1>Liste Etudiants</h1>
+<div class="sectionLeft"><h1>Liste Etudiants Tuteur</h1>
     <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
@@ -38,6 +38,7 @@ if ($_SESSION){
     <img src="../../public/images/Slide%20Lines.png">
     </span>
 </div>
+
 
 <div class="sectionRight">
     <table class="customTable">

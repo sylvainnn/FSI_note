@@ -11,7 +11,7 @@ if(!defined('DUMP')) {
 $Bdd = array(
     'interface' => 'pdo',
     'type'   => 'mysql',	    //  mysql ou pgsql
-    'host'   => 'localhost',     // l'emplacement de votre site, dans le cas d'un site en local => localhost
+    'host'   => 'localhost:8889',     // l'emplacement de votre site, dans le cas d'un site en local => localhost
     'port'   =>  '8889',	    // Par défaut: 5432 pour postgreSQL, 3306 pour MySQL
     'charset' => 'UTF8',
     'dbname' => 'P2023_2SIO_FSI', // nom de votre BDD

@@ -3,6 +3,8 @@
 namespace DAO;
 
 use DTO\administrateur;
+use DTO\Bdd;
+use PDO;
 
 class Administrateur_DAO
 {
@@ -16,7 +18,7 @@ class Administrateur_DAO
         $this->bdd = $bdd;
     }
 
-    public function getAll() : ?array
+    public function getAll(): ?array
     {
         $resultSet = NULL;
         $req = $this->bdd->query('SELECT * FROM administrateur');
@@ -31,7 +33,8 @@ class Administrateur_DAO
         return $resultSet;
     }
 
-    public function GetById(int $id): ?administrateur{
+    public function GetById($id)
+    {
         $resultSet = NULL;
         $query = 'SELECT * FROM administrateur WHERE id_ad=:id_ad;';
 
@@ -42,7 +45,7 @@ class Administrateur_DAO
 
         if ($res !== FALSE) {
             $tab = ($tmp = $reqPrep->fetch(\PDO::FETCH_ASSOC)) ? $tmp : null;
-            if(!is_null($tab)) {
+            if (!is_null($tab)) {
                 // Si on récupère une occurence, on crée un objet PERSONNEL avec cette dernière
                 $resultSet = new administrateur($tab);
             }
@@ -50,28 +53,34 @@ class Administrateur_DAO
         return $resultSet;
     }
 
-    public function authentify(Administrateur $entity): bool{
+    public function authentify_ad(string $login, string $mdp): bool
+    {
         $resultSet = NULL;
-        if ($entity != NULL) {
+        if ($login != NULL) {
             if ($this->bdd) {
                 //  Conversion de l'entité en tableau associatif (nécessaire pour le binding)
-                $query = 'SELECT * FROM Administrateur WHERE logAdmin = :login';
+                $query = 'SELECT * FROM administrateur WHERE log_ad = :login and mdp_ad = :mdp';
                 //  Préparation et exécution de la requête
                 $reqPrep = $this->bdd->prepare($query);
-                $reqPrep->bindValue(':login', $entity->getlogAd());
-                $rqtResult = $reqPrep->execute();
+                $rqtResult = $reqPrep->execute([
+                    ':login' => $login,
+                    ':mdp' => $mdp
+                ]);
                 if ($rqtResult) {
                     //  Récupération des résultats d'exécution de la requête
+
                     $row = $reqPrep->fetch(\PDO::FETCH_ASSOC);
                     if ($row) {
                         //  On a un résultat
-                        $administrateur = new administrateur($row);
-
-                        if (password_verify($entity->getMdpAd(), $administrateur->getMdpAd())) {
+                        $responsable = new administrateur($row);
+                        //  Vérification du mot de passe.
+                        // A FIARE PLUS TARD DANS LE SUJET
+                        if ($row > 0) {
+                            // if ($entity->getMdpPersonnel()== $personnel->getMdpPersonnel()){
                             //  On ne conserve nulle part le password en dehors de la bdd...
-                            $administrateur->setMdpAd('');
                             //  Mise en place des variables de session
-                            $_SESSION['Administrateur'] = $administrateur;
+                            // A FIARE PLUS TARD DANS LE SUJET
+                            $_SESSION['administrateur'] = $responsable;
                             //  Authentification réussie, on retournera TRUE
                             $resultSet = TRUE;
                         } else
@@ -84,31 +93,5 @@ class Administrateur_DAO
                 $resultSet = FALSE;
         }
         return $resultSet;
-    }
-    public function ajoutAdministrateur(Administrateur $entity):?Administrateur{
-        $resultat = true;
-        $query = "INSERT INTO Administrateur" .
-            " (id_ad,nom,pre,tel,email,log,mdp)"
-            . " VALUES (:id_ad, :nom, :pre, :tel, :email, :log, :mdp)";
-        $reqPrep = $this->bdd->prepare($query);
-        $res = $reqPrep->execute(
-            [':id_ad'=>$entity->id_ad(),
-                ':nom'=>$entity->nom(),
-                ':pre' => $entity->pre(),
-                ':tel' => $entity->tel(),
-                ':email' => $entity->email(),
-                ':log' => $entity->log(),
-                ':mdp' => $entity->mdp()
-            ]
-        );
-        if ($res == FALSE) {
-            $resultat = false;
-        }
-        else {
-            $entity->setIdAd();($this->bdd->lastInsertId());
-            $_SESSION['Administrateur'] = $entity;
-        }
-
-        return $entity;
     }
 }

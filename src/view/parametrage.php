@@ -5,6 +5,26 @@
     <link rel="stylesheet" href="../../public/css/css.css" media="screen" type="text/css"/>
 
     <style>
+        table.customTable {
+            width: 100%;
+            background-color: #FFFFFF;
+            border-collapse: collapse;
+            border-width: 2px;
+            border-color: #499C54;
+            border-style: solid;
+            color: #000000;
+        }
+
+        table.customTable td, table.customTable th {
+            border-width: 2px;
+            border-color: #499C54;
+            border-style: solid;
+            padding: 5px;
+        }
+
+        table.customTable thead {
+            background-color: #499C54;
+        }
     </style>
 
 </head>
@@ -16,7 +36,7 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionLeft"><h1>paramétrage</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -62,7 +82,6 @@ include_once  ('../../public/inc/footer.php');
     </span>
 
 </div>
-
 
 </body>
 </html>

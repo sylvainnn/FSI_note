@@ -2,20 +2,17 @@
 
 namespace DAO;
 
+use DTO\Bilan;
 use DTO\Entreprise;
 
 class Entreprise_DAO
 {
-    private PDO $bdd;
+    private \PDO $bdd;
 
-    /**
-     * @param PDO $bdd
-     */
-    public function __construct(PDO $bdd)
+    public function __construct(\PDO $bdd)
     {
         $this->bdd = $bdd;
     }
-
     public function getAll() : ?array
     {
         $resultSet = NULL;
@@ -44,7 +41,26 @@ class Entreprise_DAO
             $tab = ($tmp = $reqPrep->fetch(\PDO::FETCH_ASSOC)) ? $tmp : null;
             if(!is_null($tab)) {
 
-                $resultSet = new tuteur($tab);
+                $resultSet = new Entreprise($tab);
+            }
+        }
+        return $resultSet;
+    }
+    public function GetByEntreprise(int $id): ?Entreprise{
+        $resultSet = NULL;
+        $query = 'SELECT entreprise.* FROM etudiant 
+        INNER JOIN entreprise on etudiant.id_ent = entreprise.id_ent where id_etu =:id_etu; ';
+
+        // On prépare la rêquete
+        $reqPrep = $this->bdd->prepare($query);
+
+        $res = $reqPrep->execute([':id_etu' => $id]);
+
+        if ($res !== FALSE) {
+            $tab = ($tmp = $reqPrep->fetch(\PDO::FETCH_ASSOC)) ? $tmp : null;
+            if(!is_null($tab)) {
+
+                $resultSet = new Entreprise($tab);
             }
         }
         return $resultSet;

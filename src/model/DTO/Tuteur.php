@@ -23,18 +23,20 @@ class Tuteur
      * @param string $mdp_tut
      * @param string $id_etu
      */
-    public function __construct($data)
-    {
-        $this->id_tut = $data["id_tut"];
-        $this->nom_tut = $data["nom_tut"];
-        $this->pre_tut = $data["pre_tut"];
-        $this->tel_tut = $data["tel_tut"];
-        $this->email_tut = $data["email_tut"];
-        $this->log_tut = $data["log_tut"];
-        $this->mdp_tut = $data["mdp_tut"];
-        $this->id_etu = $data["id_etu"];
-    }
 
+    public function __construct(?array $datas = null)
+    {
+        if (!is_null($datas)) {
+            (isset($datas['id_tut'])) ? $this->setIdTut($datas['id_tut']) : $this->id = 0;
+            (isset($datas['nom_tut'])) ? $this->setNomTut($datas['nom_tut']) : $this->setNomTut('');
+            (isset($datas['pre_tut'])) ? $this->setPreTut($datas['pre_tut']) : $this->setPreTut('');
+            (isset($datas['tel_tut'])) ? $this->setTelTut($datas['tel_tut']) : $this->setTelTut('');
+            (isset($datas['email_tut'])) ? $this->setEmailTut($datas['email_tut']) : $this->setEmailTut('');
+            (isset($datas['log_tut'])) ? $this->setLogTut($datas['log_tut']) : $this->setLogTut('');
+            (isset($datas['mdp_tut'])) ? $this->setMdpTut($datas['mdp_tut']) : $this->setMdpTut('');
+        }
+
+    }
     /**
      * @return int
      */

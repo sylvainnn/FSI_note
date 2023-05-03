@@ -7,13 +7,18 @@
 </head>
 <body>
 <?php
+require_once "../../config/appConfig.php";
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+
+$idClub = intval($_GET['id_etu']);
+ $id_etu = $idClub;
+echo $idClub;
 ?>
 
 <div class="sectionLeft"><h1>Bilan 1</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -37,22 +42,26 @@ include_once  ('../../public/inc/footer.php');
         }
     </style>
 
-    <span class="bilan1">
-    <form method="post" action="">
+    <span style="position: absolute; top: 15%; left: 25%;">
+    <form method="post" action="../controler/control_ajout_bilan1.php?id_etu=<?= $id_etu?>">
+        <input type="date" name="dat_bil" id="dat_bil" placeholder="Date de visite en entreprise"/>
+        <input type="text" name="not_ent_bil" id="not_ent_bil" placeholder="Note fixée par l'entreprise"/>
+        <input type="text" name="not_oral_bil" id="not_oral_bil" placeholder="Note du dossier"/>
+        <input type="text" name="not_dos_bil" id="not_dos_bil" placeholder="Note d'oral"/>
+        <input type="text" name="remarque" id="remarque" placeholder="Remarque"/>
 
-        <input type="text" id="date" placeholder="Date de visite en entreprise">
-        <input type="text" id="noteEntreprise" placeholder="Note fixée par l'entreprise">
-        <input type="text" id="noteDossier" placeholder="Note du dossier">
-        <input type="text" id="noteOral" placeholder="Note d'oral">
-        <input type="text" id="remarque" placeholder="Remarque">
 
+
+
+</span>
         <span style="position: absolute; top: 270px; left: 25%">
-            <input type="submit" value="Enregistrer">
 
-    </form>
+ <input type="submit" value="Enregistrer"/>
+
+
     </span>
+    </form>
 </div>
-
 
 </body>
 </html>

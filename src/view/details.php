@@ -1,3 +1,14 @@
+<?php
+require_once "../../config/appConfig.php";
+$id_etu = intval($_GET['id_etu']);
+$connexion = new DTO\Bdd($Bdd);
+$repo = new DAO\Etudiant_DAO($connexion->getPDO());
+$repos = new DAO\Entreprise_DAO($connexion->getPDO());
+$etudiant = $repo->GetById($id_etu);
+$entreprise = $repos->GetByEntreprise($id_etu);
+?>
+
+
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
@@ -13,7 +24,7 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionLeft"><h1>Détails</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -23,41 +34,40 @@ include_once  ('../../public/inc/footer.php');
 </div>
 
 <div class="sectionRight">
-    <span class="infoEtudTitre">
+    <span style="position: absolute; left: 5%; top: 5%; font-size: 26px;">
         <b>Informations de l'étudiant</b>
     </span>
-    <span class="infoEtud">
-        (Nom Prénom)<br><br>
-        (Classe)<br><br>
-        (Téléphone)<br><br>
+    <span style="position: absolute; left: 5%; top: 15%">
+        <?= $etudiant->getNomEtu()?> <?= $etudiant->getPreEtu()?><br><br>
+        <?= $etudiant->getClasseEtu()?><br><br>
+        <?= $etudiant->getTelEtu()?><br><br>
         (Adresse)<br><br>
-        (Mail)
+        <?= $etudiant->getMailEtu()?>
     </span>
-    <span class="sujetAnalyseTitre">
+    <span style="position: absolute; left: 5%; top: 55%; font-size: 26px;">
         <b>Sujets d'analyses</b>
     </span>
-    <span class="sujetAnalyse">
+    <span style="position: absolute; left: 5%; top: 65%">
         (Sujet d'analyse 3OLEN)<br><br>
         (Sujet de mémoire 4 et 5OLEN)
     </span>
-    <span class="informationEntrepriseTitre">
+    <span style="position: absolute; left: 55%; top: 5%; font-size: 26px;">
         <b>Informations de l'entreprise</b>
     </span>
-    <span class="informationEntreprise">
-        (Nom )<br><br>
-        (Adresse)<br><br>
-        (Nom Prénom du maître d'apprentissage)<br><br>
-        (Téléphone du maître d'apprentissage)<br><br>
-        (Mail du maître d'apprentissage)
+    <span style="position: absolute; left: 55%; top: 15%">
+        <?= $entreprise->getLibEnt()?><br><br>
+          <?= $entreprise->getAdrEnt()?>,<?= $entreprise->getVillEnt()?>,<?= $entreprise->getCpEnt()?><br><br>
+        <?= $entreprise->getPreEntTut()?> <?= $entreprise->getPreEntTut()?><br><br>
+        <?= $entreprise->getTelEntTut()?><br><br>
+        <?= $entreprise->getEmailEntTut()?>
     </span>
     <span style="position: absolute; left: 5%; top: 83%">
-    <input type="submit" value="Bilan 1">
+    <a href="NotesBilan1.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 1">
     </span>
     <span style="position: absolute; left: 20%; top: 83%">
-    <input type="submit" value="Bilan 2">
+    <a href="NotesBilan2.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 2">
     </span>
 </div>
-
 
 </body>
 </html>

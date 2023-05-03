@@ -138,7 +138,7 @@ A:visited{
 }
 
 .bilan1{
-    position: absolute; top: 15%; left: 25%;
+    position: absolute; top: 20%; left: 25%;
 }
 
 .bilan2{
@@ -204,4 +204,68 @@ table.customTable td, table.customTable th {
 
 table.customTable thead {
     background-color: #499C54;
+}
+
+input[type="date"] {
+    background-color: #62AA6D;
+    padding: 10px;
+    position: absolute;
+    top: -20%;
+    left: 20%;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+    background-color: #62AA6D;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+input[type=text], select {
+    width: 65%;
+    padding: 6px 20px;
+    margin: 8px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+    background-color: #efefef;
+    font-size: 16px;
+}
+
+input[type=password], select {
+    width: 65%;
+    padding: 6px 20px;
+    margin: 8px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+    background-color: #efefef;
+    font-size: 16px;
+}
+
+input[type=submit]:hover {
+    background-color: #2d943b;
+}
+
+.LGestionTutorat{
+    position: absolute;
+    top: 58%;
+    left: 25%;
+}
+
+.LOrtEtudesSup{
+    position: absolute;
+    top: 77%;
+    left: 23%;
+}
+
+.Lbar{
+    position: absolute;
+    top: 90%;
+    left: 16%;
 }

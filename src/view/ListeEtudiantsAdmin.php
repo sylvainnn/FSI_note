@@ -18,26 +18,21 @@ $DAO = new DAO\Etudiant_DAO($connexion->getPDO());
 $MesEtudiants = $DAO->getAll();
 if ($_SESSION){
 ?>
-?>
 
 <body>
 
-<div class="sectionLeft"><h1>Liste Etudiants</h1>
+<div class="sectionLeft"><h1>Liste des étudiants</h1>
+    <br><br><br><br><br><br><br><br>
     <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
-    <span class="LGestionTutorat">
-    <b><h3>Gestion du tutorat</h3></b>
-    </span>
-    <span>
-    </span>
-    <span class="LOrtEtudesSup">
+    <br><br><br><b><h3>Gestion du tutorat</h3></b>
+    <br>
     ORT Etudes Supérieures
-    </span>
-    <span class="Lbar">
-    <img src="../../public/images/Slide%20Lines.png">
-    </span>
+    <br><br><br>
+    <img src="../../public/images/Slide%20Lines.png" height="4px">
 </div>
+
 
 <div class="sectionRight">
     <table class="customTable">

@@ -1,9 +1,11 @@
 <?php
 
 namespace DAO;
-
 use DTO\Tuteur;
+use PDO;
 class Tuteur_DAO
+
+
 {
     private PDO $bdd;
 
@@ -15,61 +17,35 @@ class Tuteur_DAO
         $this->bdd = $bdd;
     }
 
-    public function getAll() : ?array
+
+    public function authentify_tut(string $login, string $mdp): bool
     {
         $resultSet = NULL;
-        $req = $this->bdd->query('SELECT * FROM tuteur');
-
-        if ($req) {
-            $req->setFetchMode(\PDO::FETCH_ASSOC);
-            foreach ($req as $row) {
-                $resultSet[] = new tuteur($row);
-            }
-        }
-        return $resultSet;
-    }
-
-    public function GetById(int $id): ?Tuteur{
-        $resultSet = NULL;
-        $query = 'SELECT * FROM tuteur WHERE id_tut=:id_tut;';
-
-        // On prépare la rêquete
-        $reqPrep = $this->bdd->prepare($query);
-
-        $res = $reqPrep->execute([':id_tut' => $id]);
-
-        if ($res !== FALSE) {
-            $tab = ($tmp = $reqPrep->fetch(\PDO::FETCH_ASSOC)) ? $tmp : null;
-            if(!is_null($tab)) {
-
-                $resultSet = new tuteur($tab);
-            }
-        }
-        return $resultSet;
-    }
-
-    public function authentify(Administrateur $entity, $tuteur): bool{
-        $resultSet = NULL;
-        if ($entity != NULL) {
+        if ($login != NULL) {
             if ($this->bdd) {
-                //  Conversion de l'entité en tableau associatif
-                $query = 'SELECT * FROM Tuteur WHERE log_tut = :login';
+                //  Conversion de l'entité en tableau associatif (nécessaire pour le binding)
+                $query = 'SELECT * FROM tuteur WHERE log_tut = :login and mdp_tut = :mdp';
                 //  Préparation et exécution de la requête
                 $reqPrep = $this->bdd->prepare($query);
-                $reqPrep->bindValue(':login', $entity->getlog_tut());
-                $rqtResult = $reqPrep->execute();
+                $rqtResult = $reqPrep->execute([
+                    ':login' => $login,
+                    ':mdp' => $mdp
+                ]);
                 if ($rqtResult) {
                     //  Récupération des résultats d'exécution de la requête
+
                     $row = $reqPrep->fetch(\PDO::FETCH_ASSOC);
                     if ($row) {
                         //  On a un résultat
-                        $administrateur = new tuteur($row);
-
-                        if (password_verify($entity->getMdp_tut(), $tuteur->getMdp_tut())) {
+                        $responsable = new tuteur($row);
+                        //  Vérification du mot de passe.
+                        // A FIARE PLUS TARD DANS LE SUJET
+                        if ($row > 0) {
+                            // if ($entity->getMdpPersonnel()== $personnel->getMdpPersonnel()){
                             //  On ne conserve nulle part le password en dehors de la bdd...
-                            $tuteur->setMdp_log('');
                             //  Mise en place des variables de session
-                            $_SESSION['Tuteur'] = $tuteur;
+                            // A FIARE PLUS TARD DANS LE SUJET
+                            $_SESSION['tuteur'] = $responsable;
                             //  Authentification réussie, on retournera TRUE
                             $resultSet = TRUE;
                         } else
@@ -84,3 +60,4 @@ class Tuteur_DAO
         return $resultSet;
     }
 }
+

@@ -6,36 +6,36 @@ class Bilan
 {
 
     private int $id_bil;
-    private \DateTime $dat_bil;
+    private string $dat_bil;
     private float $not_ent_bil;
     private float $not_oral_bil;
+    private string $remarque;
     private float $not_dos_bil;
-    private float $not_dos_fin_bil;
-    private float $not_oral_fin_bil;
     private int $id_etu;
 
     /**
      * @param int $id_bil
-     * @param \DateTime $dat_bil
+     * @param string $dat_bil
      * @param float $not_ent_bil
      * @param float $not_oral_bil
+     * @param string $remarque
      * @param float $not_dos_bil
-     * @param float $not_dos_fin_bil
-     * @param float $not_oral_fin_bil
      * @param int $id_etu
      */
-    public function __construct($data)
-    {
-        $this->id_bil = $data["id_bil"];
-        $this->dat_bil = $data["dat_bil"];
-        $this->not_ent_bil = $data["not_ent_bil"];
-        $this->not_oral_bil = $data["not_oral_bil"];
-        $this->not_dos_bil = $data["not_dos_bil"];
-        $this->not_dos_fin_bil = $data["not_dos_fin_bil"];
-        $this->not_oral_fin_bil = $data["not_oral_fin_bil"];
-        $this->id_etu = $data["id_etu"];
-    }
 
+    public function __construct(?array $datas = null)
+    {
+        if (!is_null($datas)) {
+            (isset($datas['id_bil'])) ? $this->setIdBil($datas['id_bil']) : $this->id_bil = 0;
+            (isset($datas['dat_bil'])) ? $this->setDatBil($datas['dat_bil']) : $this->setDatBil('');
+            (isset($datas['not_ent_bil'])) ? $this->setNotEntBil($datas['not_ent_bil']) : $this->setNotEntBil(0);
+            (isset($datas['not_oral_bil'])) ? $this->setNotOralBil($datas['not_oral_bil']) : $this->setNotOralBil(0);
+            (isset($datas['remarque'])) ? $this->setRemarque($datas['remarque']) : $this->setRemarque('');
+            (isset($datas['not_dos_bil'])) ? $this->setNotDosBil($datas['not_dos_bil']) : $this->setNotDosBil(0);
+            (isset($datas['id_etu'])) ? $this->setIdEtu($datas['id_etu']) : $this->id_etu = 0;
+        }
+
+    }
 
     /**
      * @return int
@@ -54,17 +54,17 @@ class Bilan
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDatBil(): \DateTime
+    public function getDatBil(): string
     {
         return $this->dat_bil;
     }
 
     /**
-     * @param \DateTime $dat_bil
+     * @param string $dat_bil
      */
-    public function setDatBil(\DateTime $dat_bil): void
+    public function setDatBil(string $dat_bil): void
     {
         $this->dat_bil = $dat_bil;
     }
@@ -102,6 +102,22 @@ class Bilan
     }
 
     /**
+     * @return string
+     */
+    public function getRemarque(): string
+    {
+        return $this->Remarque;
+    }
+
+    /**
+     * @param string $remarque
+     */
+    public function setRemarque(string $remarque): void
+    {
+        $this->Remarque = $remarque;
+    }
+
+    /**
      * @return float
      */
     public function getNotDosBil(): float
@@ -115,38 +131,6 @@ class Bilan
     public function setNotDosBil(float $not_dos_bil): void
     {
         $this->not_dos_bil = $not_dos_bil;
-    }
-
-    /**
-     * @return float
-     */
-    public function getNotDosFinBil(): float
-    {
-        return $this->not_dos_fin_bil;
-    }
-
-    /**
-     * @param float $not_dos_fin_bil
-     */
-    public function setNotDosFinBil(float $not_dos_fin_bil): void
-    {
-        $this->not_dos_fin_bil = $not_dos_fin_bil;
-    }
-
-    /**
-     * @return float
-     */
-    public function getNotOralFinBil(): float
-    {
-        return $this->not_oral_fin_bil;
-    }
-
-    /**
-     * @param float $not_oral_fin_bil
-     */
-    public function setNotOralFinBil(float $not_oral_fin_bil): void
-    {
-        $this->not_oral_fin_bil = $not_oral_fin_bil;
     }
 
     /**
@@ -164,5 +148,16 @@ class Bilan
     {
         $this->id_etu = $id_etu;
     }
+
+    /**
+     * @param int $id_bil
+     * @param  $dat_bil
+     * @param float $not_ent_bil
+     * @param float $not_oral_bil
+     * @param float $not_dos_bil
+     * @param float $not_dos_fin_bil
+     * @param float $not_oral_fin_bil
+     * @param int $id_etu
+     */
 
 }

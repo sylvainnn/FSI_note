@@ -1,3 +1,3 @@
 <?php
-header("Location: pages/controler.php");
+header("Location: src/controler/control_connexion.php");
 ?>

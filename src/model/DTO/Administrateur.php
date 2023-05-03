@@ -2,6 +2,8 @@
 
 namespace DTO;
 
+use DAO\Administrateur_DAO;
+
 class Administrateur
 {
     private int $id_ad;
@@ -10,17 +12,27 @@ class Administrateur
     private string $tel_ad;
     private string $email_ad;
     private string $log_ad;
-    private int $mdp_ad;
+    private string $mdp_ad;
 
-    public function __construct($data)
+    /**
+     * @param int $id_ad
+     * @param string $log_ad
+     * @param string $mdp_ad
+     */
+
+
+    public function __construct(?array $datas = null)
     {
-        $this->id_ad = $data["id_ad"];
-        $this->nom = $data["nom"];
-        $this->pre = $data["pre"];
-        $this->tel = $data["tel"];
-        $this->email = $data["email"];
-        $this->log = $data["log"];
-        $this->mdp = $data["mdp"];
+        if (!is_null($datas)) {
+            (isset($datas['id_ad'])) ? $this->setIdAd($datas['id_ad']) : $this->id = 0;
+            (isset($datas['log_ad'])) ? $this->setLogAd($datas['log_ad']) : $this->setLogAd('');
+            (isset($datas['mdp_ad'])) ? $this->setMdpAd($datas['mdp_ad']) : $this->setMdpAd('');
+            (isset($datas['nom_ad'])) ? $this->setNomAd($datas['nom_ad']) : $this->setNomAd('');
+            (isset($datas['pre_ad'])) ? $this->setPreAd($datas['pre_ad']) : $this->setPreAd('');
+            (isset($datas['tel_ad'])) ? $this->setTelAd($datas['tel_ad']) : $this->setTelAd('');
+            (isset($datas['email_ad'])) ? $this->setEmailAd($datas['email_ad']) : $this->setEmailAd('');
+        }
+
     }
 
     /**
@@ -42,96 +54,97 @@ class Administrateur
     /**
      * @return string
      */
-    public function getNom(): string
+    public function getNomAd(): string
     {
-        return $this->nom;
+        return $this->nom_ad;
     }
 
     /**
-     * @param string $nom
+     * @param string $nom_ad
      */
-    public function setNom(string $nom): void
+    public function setNomAd(string $nom_ad): void
     {
-        $this->nom = $nom;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPre(): string
-    {
-        return $this->pre;
-    }
-
-    /**
-     * @param string $pre
-     */
-    public function setPre(string $pre): void
-    {
-        $this->pre = $pre;
+        $this->nom_ad = $nom_ad;
     }
 
     /**
      * @return string
      */
-    public function getTel(): string
+        public function getPreAd(): string
     {
-        return $this->tel;
+        return $this->pre_ad;
     }
 
     /**
-     * @param string $tel
+     * @param string $pre_ad
      */
-    public function setTel(string $tel): void
+    public function setPreAd(string $pre_ad): void
     {
-        $this->tel = $tel;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
+        $this->pre_ad = $pre_ad;
     }
 
     /**
      * @return string
      */
-    public function getLog(): string
+    public function getTelAd(): string
     {
-        return $this->log;
+        return $this->tel_ad;
     }
 
     /**
-     * @param string $log
+     * @param string $tel_ad
      */
-    public function setLog(string $log): void
+    public function setTelAd(string $tel_ad): void
     {
-        $this->log = $log;
+        $this->tel_ad = $tel_ad;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getMdp(): int
+    public function getEmailAd(): string
     {
-        return $this->mdp;
+        return $this->email_ad;
     }
 
     /**
-     * @param int $mdp
+     * @param string $email_ad
      */
-    public function setMdp(int $mdp): void
+    public function setEmailAd(string $email_ad): void
     {
-        $this->mdp = $mdp;
+        $this->email_ad = $email_ad;
     }
+
+    /**
+     * @return string
+     */
+    public function getLogAd(): string
+    {
+        return $this->log_ad;
+    }
+
+    /**
+     * @param string $log_ad
+     */
+    public function setLogAd(string $log_ad): void
+    {
+        $this->log_ad = $log_ad;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMdpAd(): string
+    {
+        return $this->mdp_ad;
+    }
+
+    /**
+     * @param string $mdp_ad
+     */
+    public function setMdpAd(string $mdp_ad): void
+    {
+        $this->mdp_ad = $mdp_ad;
+    }
+
 }

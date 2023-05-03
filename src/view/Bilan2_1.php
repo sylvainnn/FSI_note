@@ -7,8 +7,13 @@
 </head>
 <body>
 <?php
+require_once "../../config/appConfig.php";
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+
+$idClub = intval($_GET['id_etu']);
+$id_etu = $idClub;
+echo $idClub;
 ?>
 
 <div class="sectionLeft"><h1>Bilan 2</h1>
@@ -38,8 +43,7 @@ include_once  ('../../public/inc/footer.php');
     </style>
 
     <span style="position: absolute; top: 15%; left: 25%;"
-    <form method="post" action="">
-
+    <form method="post" action=../controler/control_ajout_bilan2.php?id_etu=<?= $id_etu?>">
         <input type="text" id="dateBilan2" placeholder="Date du bilan 2">
         <input type="text" id="noteDossier" placeholder="Note du dossier">
         <input type="text" id="noteOral" placeholder="Note d'oral'">

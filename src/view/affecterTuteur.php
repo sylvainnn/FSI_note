@@ -13,7 +13,7 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionLeft"><h1>Affecer tuteur</h1>
     <br><br><br><br><br><br><br><br>
-    <span class="sitting">
+    <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
     </span>
     <br><br><br><b><h3>Gestion du tutorat</h3></b>
@@ -23,7 +23,7 @@ include_once  ('../../public/inc/footer.php');
 </div>
 
 <div class="sectionRight">
-    <span class="selectEtudiant">
+    <span style="position: absolute; top: 10%; left: 40%">
         <div class="select">
             <select>
                 <option value="1">etudiant 1</option>
@@ -33,7 +33,7 @@ include_once  ('../../public/inc/footer.php');
             </select>
     </div>
     </span>
-    <span class="selectTuteur">
+    <span style="position: absolute; top: 30%; left: 40%">
         <div class="select">
             <select>
                 <option value="1">Tuteur 1</option>
@@ -46,7 +46,6 @@ include_once  ('../../public/inc/footer.php');
     <span style="position: absolute; top: 60%; left: 40%">
             <input type="submit" value="Enregistrer">
 </div>
-
 
 </body>
 </html>
