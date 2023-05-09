@@ -6,6 +6,7 @@ $repo = new DAO\Etudiant_DAO($connexion->getPDO());
 $repos = new DAO\Entreprise_DAO($connexion->getPDO());
 $etudiant = $repo->GetById($id_etu);
 $entreprise = $repos->GetByEntreprise($id_etu);
+if ($_SESSION){
 ?>
 
 
@@ -55,11 +56,13 @@ include_once  ('../../public/inc/footer.php');
         <b>Informations de l'entreprise</b>
     </span>
     <span style="position: absolute; left: 55%; top: 15%">
+        <?php if($entreprise != null ) {?>
         <?= $entreprise->getLibEnt()?><br><br>
           <?= $entreprise->getAdrEnt()?>,<?= $entreprise->getVillEnt()?>,<?= $entreprise->getCpEnt()?><br><br>
         <?= $entreprise->getPreEntTut()?> <?= $entreprise->getPreEntTut()?><br><br>
         <?= $entreprise->getTelEntTut()?><br><br>
         <?= $entreprise->getEmailEntTut()?>
+        <?php } ?>
     </span>
     <span style="position: absolute; left: 5%; top: 83%">
     <a href="NotesBilan1.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 1">
@@ -68,6 +71,6 @@ include_once  ('../../public/inc/footer.php');
     <a href="NotesBilan2.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 2">
     </span>
 </div>
-
+<?php }else{header('location:Connexion.php');} ?>
 </body>
 </html>

@@ -10,7 +10,7 @@ define('CLASS_DIR', SRC_DIR . PATH_SEPARATOR);
 set_include_path(get_include_path() . PATH_SEPARATOR . CLASS_DIR);
 
 spl_autoload_register(function ($className) {
-    $extension = '.php';
+    $extension = 'inscription_eleve.php';
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
     require_once($className . $extension);
 });

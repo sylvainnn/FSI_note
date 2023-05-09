@@ -50,6 +50,7 @@ if ($_SESSION){
             <th>Spécialité</th>
             <th>Classe</th>
             <th>Détails</th>
+            <th>supprimer</th>
         </tr>
         </thead>
         <tbody>
@@ -61,7 +62,8 @@ if ($_SESSION){
                 <td><?= $etudiant->getMailEtu()?></td>
                 <td><?= $etudiant->getSpeEtu()?></td>
                 <td><?= $etudiant->getClasseEtu()?></td>
-                <td style="text-align: center;"><a style="color: #499C54;" href="Details.php?id_etu=<?= $etudiant->getIdEtu()?>"><i class="fa-solid fa-circle-info"></i></td>
+                <td style="text-align: center;"><a style="color: #499C54;" href="details.php?id_etu=<?= $etudiant->getIdEtu()?>"><i class="fa-solid fa-circle-info"></i></td>
+                <td style="text-align: center;"><a style="color: #499C54;" href="../controler/control_delete_eleve.php?id_etu=<?= $etudiant->getIdEtu()?>"><i class="fa-solid fa-circle-info"></i></td>
 
                 <!-- <td> <a href="../controller/modif_etudiant_control.php" style="color:floralwhite;"><img src="../../public/img/1160515.png" alt="" style="width:40px"/> </a></td>
                  <td> <a href="../controller/modif_etudiant_control.php" style="color:floralwhite;"><img src="../../public/img/51646.png" alt="" style="width:40px"/> </a></td>

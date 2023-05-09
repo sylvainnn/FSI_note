@@ -32,6 +32,12 @@
 <?php
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+
+require_once "../../config/appConfig.php";
+$connexion = new DTO\Bdd($Bdd);
+$DAO = new DAO\Tuteur_DAO($connexion->getPDO());
+$MesTuteurs = $DAO->getAll();
+if ($_SESSION){
 ?>
 
 <div class="sectionLeft"><h1>paramétrage</h1>
@@ -53,35 +59,33 @@ include_once  ('../../public/inc/footer.php');
             <th>Prénom</th>
             <th>Téléphone</th>
             <th>Mail</th>
-            <th>Spécialité</th>
-            <th>Nombre d'étudiants max</th>
-            <th></th>
-            <th></th>
+            <th>suprimer</th>
+            <th>modifier</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Infos</td>
-            <td>Infos</td>
-            <td>Infos</td>
-            <td>Infos</td>
-            <td>Infos</td>
-            <td>Infos</td>
-            <td>Modifier</td>
-            <td>Supprimer</td>
-        </tr>
+        <?php foreach ($MesTuteurs as $tuteur) {?>
+            <tr>
+                <td><?= $tuteur->getNomTut()?></td>
+                <td><?= $tuteur->getPreTut()?></td>
+                <td><?= $tuteur->getTelTut()?></td>
+                <td><?= $tuteur->getEmailTut()?></td>
+                <td style="text-align: center;"><a style="color: #499C54;" href="../controler/control_delete_tuteur.php?id_tut=<?= $tuteur->getIdTut()?>"><i class="fa-solid fa-circle-info"></i></td>
+                <td style="text-align: center;"><a style="color: #499C54;" href="modification.php?id_tut=<?= $tuteur->getIdTut()?>"><i class="fa-solid fa-circle-info"></i></td>
+                </tr>
+        <?php }?>
         </tbody>
     </table>
 
     <span style="position: absolute; top: 90%; left: 58%">
-            <input type="submit" value="Affecter tuteur">
+             <a href="affecterTuteur.php" ><input type="submit" value="Affecter tuteur"/>
     </span>
 
     <span style="position: absolute; top: 90%; left: 79%">
-            <input type="submit" value="Créer étudiant">
+           <a href="creerEtudiant.php" ><input  type="submit" value="Créer étudiant"/>
     </span>
-
 </div>
 
 </body>
 </html>
+<?php }else{header('location:Connexion.php');} ?>

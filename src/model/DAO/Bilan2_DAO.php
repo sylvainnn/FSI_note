@@ -16,14 +16,12 @@ class Bilan2_DAO
     {
         $resultat = true;
 
-        $query = "INSERT INTO bilan2" .
-            " (dat_bil, Not_bil, Not_oral_bil,Remarque,id_etu)"
-            . " VALUES (:Dat_bil,  :Not_bil, :Not_oral_bil,:Remarque,:id_etu)";
-        //dump_var($entity, DUMP, '$entity dans ma fonction ajout Resa');
+        $query = "INSERT INTO `bilan2`(`dat_bil`, `Not_bil`, `Not_oral_bil`, `Remarque`, `id_etu`) VALUES (:dat_bil,:Not_bil,:Not_oral_bil,:Remarque,:id_etu,);";
+         dump_var($entity, DUMP, '$entity dans ma fonction ajout Resa');
         $reqPrep = $this->bdd->prepare($query);
 
         $res = $reqPrep->execute(
-            [':Dat_bil' => $entity->getDatBil(),
+            [':dat_bil' => $entity->getDatBil(),
                 ':Not_bil' => $entity->getNotBil(),
                 ':Not_oral_bil' => $entity->getNotOralBil(),
                 ':Remarque' => $entity->getRemarque(),

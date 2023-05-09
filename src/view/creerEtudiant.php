@@ -21,8 +21,10 @@
 </head>
 <body>
 <?php
+require_once "../../config/appConfig.php";
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+if ($_SESSION){
 ?>
 
 <div class="sectionLeft"><h1>Créer étudiant</h1>
@@ -38,22 +40,26 @@ include_once  ('../../public/inc/footer.php');
 
 <div class="sectionRight">
 
-    <span style="position: absolute; top: 15%; left: 25%;"
-    <form method="post" action="">
+    <span style="position: absolute; top: 15%; left: 25%;">
+    <form method="post" action="../controler/control_ajout_etu.php">
 
-        <input type="text" id="nom" placeholder="Nom">
-        <input type="text" id="prenom" placeholder="Prénom">
-        <input type="text" id="classe" placeholder="Classe">
-        <input type="text" id="telephone" placeholder="Téléphone">
-        <input type="text" id="adresse" placeholder="Adresse">
-        <input type="text" id="mail" placeholder="Mail">
+        <input type="text" name="nom_etu" id="nom" placeholder="Nom">
+        <input type="text" name="pre_etu" id="prenom" placeholder="Prénom">
+        <input type="text" name="tel_etu" id="telephone" placeholder="Téléphone">
+        <input type="text" name="mail_etu" id="adresse" placeholder="Adresse">
+        <input type="text" name="spe_etu" id="spe_etu" placeholder="spe_etu">
+        <input type="text" name="classe_etu" id="classe_etu" placeholder="classe_etu">
+        <input type="text" name="autres_etu" id="autres_etu" placeholder="autres_etu">
+        <input type="text" name="log_etu" id="log_etu" placeholder="log">
+        <input type="text" name="mdp_etu"  id="mdp_etu" placeholder="mdp">
 
         <span style="position: absolute; top: 300px; left: 25%">
             <input type="submit" value="Enregistrer">
 
     </form>
+        </span>
     </span>
 </div>
-
+<?php }else{header('location:Connexion.php');} ?>
 </body>
 </html>
