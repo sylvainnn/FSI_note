@@ -33,6 +33,7 @@ if($_SESSION){?>
 <div class="sectionRight">
     <span style="position: absolute; top: 38%; left: 20%; font-size: 30px; text-align: center;">
          <?php
+
          if (isset($_SESSION['administrateur']) && $_SESSION['administrateur'] != null) {$user=$_SESSION["administrateur"];
              echo '<i style="color: #499C54" class="fa-solid fa-toolbox"> Compte Administrateur</i> <br>';
              echo '<br><div class="alert alert-primary" role="alert">Bonjour</div>';}
@@ -45,7 +46,8 @@ if($_SESSION){?>
          <br>
 
          <?php
-         if (isset($_SESSION['administrateur']) && $_SESSION['administrateur'] != null) {$user=$_SESSION["administrateur"];
+         if (isset($_SESSION['administrateur']) && $_SESSION['administrateur'] != null) {
+             $user=$_SESSION["administrateur"];
              echo '<div class="alert alert-primary" role="alert">'.$user->getPreAd(). ' '.$user->getNomAd(). ', vous êtes connectée</div>';}
          if (isset($_SESSION['tuteur']) && $_SESSION['tuteur'] != null) {
              $user=$_SESSION["tuteur"];

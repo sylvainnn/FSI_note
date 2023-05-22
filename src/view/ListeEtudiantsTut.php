@@ -13,11 +13,11 @@ include_once  ('../../public/inc/footer.php');
 
 require_once "../../config/appConfig.php";
 $user=$_SESSION["tuteur"];
+if ($_SESSION){
 $connexion = new DTO\Bdd($Bdd);
 $DAO = new DAO\Etudiant_DAO($connexion->getPDO());
 $MesEtudiants = $DAO->GetBytuteur($user->getIdTut());
-if ($_SESSION){
-?>
+
 ?>
 
 <body>

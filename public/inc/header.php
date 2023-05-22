@@ -42,27 +42,29 @@
     </span>
 
     <span style="position: absolute; top: 30%; left: 34%; font-size: 18px; color: white;">
-        <a href="/src/view/Accueil.php">Accueil</a>
+        <a href="../../src/view/accueil.php">Accueil</a>
     </span>
 
     <?php if (isset($_SESSION['tuteur']) && $_SESSION['tuteur'] != null) { ?>
         <span style="position: absolute; top: 30%; left: 42%; font-size: 18px; color: white;">
-        <a href="/src/view/ListeEtudiantsTut.php">Listes des étudiants Tut</a>
+        <a href="../../src/view/ListeEtudiantsTut.php">Listes des étudiants Tut</a>
     </span>
     </span>
     <?php } elseif (isset($_SESSION['administrateur']) && $_SESSION['administrateur'] != null) { ?>
     <span style="position: absolute; top: 30%; left: 44%; font-size: 18px; color: white;">
-        <a href="/src/view/ListeEtudiants.php">Liste Etudiants</i></a>
+        <a href="../../src/view/listeEtudiants.php">Liste Etudiants</i></a>
     </span>
     <?php } else { ?>
     <span style="position: absolute; top: 30%; left: 47%; font-size: 22px; color: white;">
-        <a href="/src/view/Accueil.php"><i class="fa-solid fa-arrow-left-long"></i></a>
+        <a href="../../src/view/accueil.php"><i class="fa-solid fa-arrow-left-long"></i></a>
     </span>
     <?php }?>
-
+    <?php if(isset($_SESSION['administrateur']) && $_SESSION['administrateur'] != null) { ?>
     <span style="position: absolute; top: 30%; left: 57%; font-size: 18px; color: white;">
-        <a href="/src/view/Parametrage.php">Paramètres</a>
+        <a href="../../src/view/parametrage.php">Paramètres</a>
+
     </span>
+     <?php }?>
 </div>
 </body>
 </html>

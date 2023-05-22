@@ -24,7 +24,7 @@ class Bilan2
     {
         if (!is_null($datas)) {
             (isset($datas['id_bil'])) ? $this->setIdBil($datas['id_bil']) : $this->id_bil = 0;
-            (isset($datas['Dat_bil'])) ? $this->setDatBil($datas['dat_bil']) : $this->setDatBil('');
+            (isset($datas['Dat_bil'])) ? $this->setDatBil($datas['Dat_bil']) : $this->setDatBil('');
             (isset($datas['Not_bil'])) ? $this->setNotBil($datas['Not_bil']) : $this->setNotBil(0);
             (isset($datas['Not_oral_bil'])) ? $this->setNotOralBil($datas['Not_oral_bil']) : $this->setNotOralBil(0);
             (isset($datas['Remarque'])) ? $this->setRemarque($datas['Remarque']) : $this->setRemarque('');

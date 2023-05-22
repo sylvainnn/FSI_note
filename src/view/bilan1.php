@@ -10,7 +10,7 @@
 require_once "../../config/appConfig.php";
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
-
+if ($_SESSION){
 $idClub = intval($_GET['id_etu']);
  $id_etu = $idClub;
 echo $idClub;
@@ -62,6 +62,6 @@ echo $idClub;
     </span>
     </form>
 </div>
-
+<?php }else{header('location:Connexion.php');} ?>
 </body>
 </html>

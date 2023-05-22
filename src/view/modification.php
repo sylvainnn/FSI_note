@@ -9,6 +9,13 @@
 <?php
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+
+require_once "../../config/appConfig.php";
+$id_tut = intval($_GET['id_tut']);
+$connexion = new DTO\Bdd($Bdd);
+$repo = new DAO\Tuteur_DAO($connexion->getPDO());
+$Tuteur = $repo->GetBytuteur($id_tut);
+if ($_SESSION){
 ?>
 
 <div class="sectionLeft">
@@ -37,22 +44,21 @@ include_once  ('../../public/inc/footer.php');
             font-size: 16px;
         }
     </style>
+    <?php {if($Tuteur != null ) {{ ?>
+    <?php foreach ($Tuteur as $mesBilan) { ?>
 
-    <span style="position: absolute; top: 15%; left: 25%;"
-    <form method="post" action="">
-
-        <input type="text" id="nom" placeholder="Nom">
-        <input type="text" id="prenom" placeholder="Prénom">
-        <input type="text" id="classe" placeholder="Classe">
-        <input type="text" id="telephone" placeholder="Télépone">
-        <input type="text" id="adresse" placeholder="Adresse">
-        <input type="text" id="mail" placeholder="Mail">
-
+    <span style="position: absolute; top: 15%; left: 25%;">
+    <form method="post" action="../controler/control_update_tuteur.php?id_tut=<?=$id_tut?>">
+        <input type="text"  name="nom_tut" id="nom_tut" value="<?= $mesBilan->getNomTut();?>">
+        <input type="text"  name="pre_tut"id="pre_tut" value="<?= $mesBilan->getPreTut();?>">
+        <input type="text" name="tel_tut" id="tel_tut" value="<?= $mesBilan->getTelTut();?>">
+        <input type="text" name="email_tut" id="email_tut" value="<?= $mesBilan->getEmailTut();?>">
         <span style="position: absolute; top: 300px; left: 25%">
             <input type="submit" value="Enregistrer">
 
     </form>
     </span>
+    <?php }}}}}else{header('location:Connexion.php');} ?>
 </div>
 
 </body>

@@ -7,8 +7,13 @@
 </head>
 <body>
 <?php
+require_once "../../config/appConfig.php";
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+if ($_SESSION){
+    $idClub = intval($_GET['id_etu']);
+    $id_etu = $idClub;
+    echo $idClub;
 ?>
 
 <div class="sectionLeft"><h1>Bilan 2</h1>
@@ -37,13 +42,13 @@ include_once  ('../../public/inc/footer.php');
         }
     </style>
 
-    <span style="position: absolute; top: 15%; left: 25%;"
-    <form method="post" action="">
+    <span style="position: absolute; top: 15%; left: 25%;"></span>
+    <form method="post" action="../controler/control_ajout_bilan2.php?id_etu=<?= $id_etu?>"">
 
-        <input type="text" id="dateBilan2" placeholder="Date du bilan 2">
-        <input type="text" id="noteDossier" placeholder="Note du dossier">
-        <input type="text" id="noteOral" placeholder="Note d'oral'">
-        <input type="text" id="remarque" placeholder="Remarque">
+        <input type="date" name="dat_bil" id="dateBilan2" placeholder="Date du bilan 2">
+        <input type="text" name="Not_bil" id="noteDossier" placeholder="Note du dossier">
+        <input type="text" name="Not_oral_bil" id="noteOral" placeholder="Note d'oral'">
+        <input type="text" name="Remarque" id="remarque" placeholder="Remarque">
 
         <span style="position: absolute; top: 220px; left: 25%">
             <input type="submit" value="Enregistrer">
@@ -51,6 +56,6 @@ include_once  ('../../public/inc/footer.php');
     </form>
     </span>
 </div>
-
+<?php }else{header('location:Connexion.php');} ?>
 </body>
 </html>
