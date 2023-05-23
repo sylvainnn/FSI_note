@@ -1,3 +1,15 @@
+<?php
+require_once "../../config/appConfig.php";
+$id_etu = intval($_GET['id_etu']);
+$connexion = new DTO\Bdd($Bdd);
+$repo = new DAO\Etudiant_DAO($connexion->getPDO());
+$repos = new DAO\Entreprise_DAO($connexion->getPDO());
+$etudiant = $repo->GetById($id_etu);
+$entreprise = $repos->GetByEntreprise($id_etu);
+if ($_SESSION){
+?>
+
+
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
@@ -27,11 +39,11 @@ include_once  ('../../public/inc/footer.php');
         <b>Informations de l'étudiant</b>
     </span>
     <span style="position: absolute; left: 5%; top: 15%">
-        (Nom Prénom)<br><br>
-        (Classe)<br><br>
-        (Téléphone)<br><br>
+        <?= $etudiant->getNomEtu()?> <?= $etudiant->getPreEtu()?><br><br>
+        <?= $etudiant->getClasseEtu()?><br><br>
+        <?= $etudiant->getTelEtu()?><br><br>
         (Adresse)<br><br>
-        (Mail)
+        <?= $etudiant->getMailEtu()?>
     </span>
     <span style="position: absolute; left: 5%; top: 55%; font-size: 26px;">
         <b>Sujets d'analyses</b>
@@ -44,19 +56,21 @@ include_once  ('../../public/inc/footer.php');
         <b>Informations de l'entreprise</b>
     </span>
     <span style="position: absolute; left: 55%; top: 15%">
-        (Nom )<br><br>
-        (Adresse)<br><br>
-        (Nom Prénom du maître d'apprentissage)<br><br>
-        (Téléphone du maître d'apprentissage)<br><br>
-        (Mail du maître d'apprentissage)
+        <?php if($entreprise != null ) {?>
+        <?= $entreprise->getLibEnt()?><br><br>
+          <?= $entreprise->getAdrEnt()?>,<?= $entreprise->getVillEnt()?>,<?= $entreprise->getCpEnt()?><br><br>
+        <?= $entreprise->getPreEntTut()?> <?= $entreprise->getPreEntTut()?><br><br>
+        <?= $entreprise->getTelEntTut()?><br><br>
+        <?= $entreprise->getEmailEntTut()?>
+        <?php } ?>
     </span>
     <span style="position: absolute; left: 5%; top: 83%">
-    <input type="submit" value="Bilan 1">
+    <a href="NotesBilan1.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 1">
     </span>
     <span style="position: absolute; left: 20%; top: 83%">
-    <input type="submit" value="Bilan 2">
+    <a href="NotesBilan2.php?id_etu=<?= $id_etu?>"><input type="submit" value="Bilan 2">
     </span>
 </div>
-
+<?php }else{header('location:Connexion.php');} ?>
 </body>
 </html>

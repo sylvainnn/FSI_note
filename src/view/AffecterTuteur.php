@@ -9,9 +9,16 @@
 <?php
 include_once('../../public/inc/header.php');
 include_once  ('../../public/inc/footer.php');
+require_once "../../config/appConfig.php";
+$connexion = new DTO\Bdd($Bdd);
+$DAO = new DAO\Etudiant_DAO($connexion->getPDO());
+$MesEtudiants = $DAO->getAll();
+$DAOtut = new DAO\Tuteur_DAO($connexion->getPDO());
+$MesTuteur = $DAOtut->getAll();
+if ($_SESSION){
 ?>
 
-<div class="sectionLeft"><h1>Affecer tuteur</h1>
+<div class="sectionLeft"><h1>Affecter tuteur</h1>
     <br><br><br><br><br><br><br><br>
     <span style="position: absolute; top: 110px; left: 90px;">
         <img src="../../public/images/sitting-4.png" height="170px">
@@ -25,27 +32,32 @@ include_once  ('../../public/inc/footer.php');
 <div class="sectionRight">
     <span style="position: absolute; top: 10%; left: 40%">
         <div class="select">
-            <select>
-                <option value="1">etudiant 1</option>
-                <option value="2">etudiant 2</option>
-                <option value="3">etudiant 3</option>
-                <option value="4">etudiant 4</option>
+            <form method="POST" action="../controler/control_affe.php">
+            <select name="id_etu">
+                <?php foreach ($MesEtudiants as $etudiant) {?>
+                <option  value="<?=  $etudiant->getIdEtu()?>"><?= $etudiant->getNomEtu()?></option>
+                <?php }?>
             </select>
+
     </div>
     </span>
     <span style="position: absolute; top: 30%; left: 40%">
         <div class="select">
-            <select>
-                <option value="1">Tuteur 1</option>
-                <option value="2">Tuteur 2</option>
-                <option value="3">Tuteur 3</option>
-                <option value="4">Tuteur 4</option>
+            <select name="id_tut">
+                <?php foreach ($MesTuteur as $Tuteur) {?>
+                    <option  value="<?= $Tuteur->getIdTut()?>"><?= $Tuteur->getNomTut()?></option>
+                <?php }?>
             </select>
-    </div>
-    </span>
-    <span style="position: absolute; top: 60%; left: 40%">
+             </div>
+        <span style="position: absolute; top: 60%; left: 40%">
             <input type="submit" value="Enregistrer">
+        </span></span>
+        </form>
+    <?php }else{header('location:Connexion.php');} ?>
+
 </div>
+
+
 
 </body>
 </html>
